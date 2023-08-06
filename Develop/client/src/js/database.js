@@ -13,7 +13,7 @@ const initdb = async () =>
   });
 
 // Method that gets the content from the IndexedDB database
-const getDb = async () => {
+export const getDb = async () => {
   console.log('GET from the database');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readonly');
@@ -27,7 +27,7 @@ const getDb = async () => {
 };
 
 // Method that takes the content and adds it to the IndexedDB database 
-const putDb = async (content) => {
+export const putDb = async (content) => {
   console.log('PUT to database');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
@@ -39,5 +39,3 @@ const putDb = async (content) => {
 
 
 initdb();
-
-modules.exports = {getDb, putDb};
